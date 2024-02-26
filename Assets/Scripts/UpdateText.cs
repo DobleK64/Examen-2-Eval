@@ -34,6 +34,8 @@ public class UpdateText : MonoBehaviour
                 break;
             case GameManager.GameManagerVariables.POINTS: 
                 textComponent.text = "Points: " + GameManager.instance.GetPoints();
+                break; case GameManager.GameManagerVariables.FIREWORKS: 
+                textComponent.text = "Fireworks: " + GameManager.instance.GetFireworks();
                 break;
             default:
                 break;
