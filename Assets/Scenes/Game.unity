@@ -1174,6 +1174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d6bbcc7b333360489d5156b605c898b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  witchTimeAudioClip: {fileID: 8300000, guid: 54819308097364a47913aae2c721d97f, type: 3}
 --- !u!1 &2096137249
 GameObject:
   m_ObjectHideFlags: 0
