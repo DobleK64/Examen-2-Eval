@@ -855,6 +855,8 @@ MonoBehaviour:
   speed: 1
   rayDistance: 0.15
   jumpForce: 3
+  currentsJumps: 0
+  MaxJumps: 2
   groundMask:
     serializedVersion: 2
     m_Bits: 8

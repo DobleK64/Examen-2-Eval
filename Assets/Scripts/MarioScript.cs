@@ -7,11 +7,10 @@ using UnityEngine;
 public class MarioScript : MonoBehaviour
 {
     public KeyCode rightKey, leftKey, jumpKey;
-    public float speed, rayDistance, jumpForce;
+    public float speed, rayDistance, jumpForce, currentsJumps = 0, MaxJumps = 2;
     public LayerMask groundMask;
     public AudioClip jumpClip;
     public GameObject fireworkPrefab;
-    public int saltoDoble = 0;
 
     private Rigidbody2D rb;
     private SpriteRenderer _rend;
@@ -80,11 +79,11 @@ public class MarioScript : MonoBehaviour
         rb.velocity = nVel;
 
 
-        if (_intentionToJump && (IsGrounded() || saltoDoble < 2))
+        if (_intentionToJump && (grnd || currentsJumps < MaxJumps))
         {
             _animator.Play("jumpAnimation");
             AddJumpForce();
-            saltoDoble++;
+            currentsJumps++;
         }
         _intentionToJump = false;
 
@@ -103,7 +102,7 @@ public class MarioScript : MonoBehaviour
         RaycastHit2D collision = Physics2D.Raycast(transform.position, Vector2.down, rayDistance, groundMask);
         if (collision)
         {
-            saltoDoble = 0;
+            currentsJumps = 0;
             return true;
         }
         return false;
