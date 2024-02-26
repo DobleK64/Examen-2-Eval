@@ -11,6 +11,7 @@ public class MarioScript : MonoBehaviour
     public LayerMask groundMask;
     public AudioClip jumpClip;
     public GameObject fireworkPrefab;
+    public int saltoDoble = 0;
 
     private Rigidbody2D rb;
     private SpriteRenderer _rend;
@@ -79,10 +80,11 @@ public class MarioScript : MonoBehaviour
         rb.velocity = nVel;
 
 
-        if (_intentionToJump && grnd)
+        if (_intentionToJump && (IsGrounded() || saltoDoble < 2))
         {
             _animator.Play("jumpAnimation");
             AddJumpForce();
+            saltoDoble++;
         }
         _intentionToJump = false;
 
@@ -101,6 +103,7 @@ public class MarioScript : MonoBehaviour
         RaycastHit2D collision = Physics2D.Raycast(transform.position, Vector2.down, rayDistance, groundMask);
         if (collision)
         {
+            saltoDoble = 0;
             return true;
         }
         return false;
