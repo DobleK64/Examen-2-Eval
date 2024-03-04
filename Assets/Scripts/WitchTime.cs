@@ -1,7 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//
+//public AudioClip witchAudio;
+//void Update()
+//{
+//    if (Input.GetKeyDown(KeyCode.Mouse1))
+//    {
+//        StartCoroutine(SlowDown());
 
+//    }
+//}
+//IEnumerator SlowDown()
+//{
+//    Time.timeScale = 0.25f;
+//    AudioSource src = AudioManager.instance.PayAudio(witchAudio, "witch");
+
+//    while (src.isPlaying)
+//        yield return null;
+
+//    Time.timeScale = 1f;
+//}
 public class WitchTime : MonoBehaviour
 {
     private float normalTimeScale = 1.0f;
